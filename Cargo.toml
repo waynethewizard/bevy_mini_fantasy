@@ -6,6 +6,3 @@ edition = "2021"
 [dependencies]
 bevy = { version = "0.9", features = ["dynamic"]}
 bevy_ecs_tilemap = { version = "0.9"}
-log = "0.4.17"
-tiled = "0.10.2"
-anyhow = "1.0.66"
