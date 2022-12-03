@@ -1,0 +1,13 @@
+/assets/room.txt 5 3
+/assets/stress.txt 2 1
+###################
+#............GGGGG#
+#............GGGGG#
+#............GGGGG#
+#.WWWWW......GGGGG#
+#.WRRRW......GGGGG#
+#.WWDWW......GGGGG#
+#............GGGGG#
+#............GGGGG#
+#............GGGGG#
+###D###############

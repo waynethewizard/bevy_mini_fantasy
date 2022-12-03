@@ -6,3 +6,5 @@ edition = "2021"
 [dependencies]
 bevy = { version = "0.9", features = ["dynamic"]}
 bevy_ecs_tilemap = { version = "0.9"}
+rand = { version = "0.8.5" }
+bevy-inspector-egui = "0.14"
