@@ -86,7 +86,6 @@ fn create_simple_map(mut commands: Commands, ascii: Res<AsciiSheet>) {
 
     commands
         .spawn((Map, Name::new("Map"),
-               Transform::default(),
-               GlobalTransform::default()))
+               SpatialBundle::default()))
         .push_children(&tiles);
 }

@@ -30,7 +30,7 @@ fn main() {
     let height = 900.0;
     App::new()
         .insert_resource(ClearColor(CLEAR))
-       // .insert_resource(Msaa {samples: 1})
+        .insert_resource(Msaa {samples: 1})
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             window: WindowDescriptor {
                 title: "I am a window!".to_string(),
@@ -61,7 +61,7 @@ fn frame_limiter() {
 
 fn spawn_camera(mut commands: Commands) {
     let mut camera = Camera2dBundle::default();
-   // camera.projection.scaling_mode = ScalingMode::None;
+    camera.projection.scaling_mode = ScalingMode::None;
     camera.projection.top = 1.0;
     camera.projection.bottom = -1.0;
     camera.projection.right = 1.0 * RESOLUTION;
