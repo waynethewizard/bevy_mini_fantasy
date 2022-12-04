@@ -7,7 +7,7 @@ pub struct NineSpritePlugin;
 impl Plugin for NineSpritePlugin {
     fn build(&self, app: &mut App) {
         app.add_startup_system_to_stage(StartupStage::PreStartup, setup_nine_sprite)
-        //        .add_startup_system(spawn_simple_nine_sprite);
+                .add_startup_system(spawn_simple_nine_sprite);
             ;
     }
 }
@@ -136,12 +136,8 @@ pub fn spawn_nine_sprite(
     ));
 
     commands
-        .spawn_empty()
-        .insert(NineSprite)
-        .insert(Name::new("NineSpriteBox"))
-        //Needs transforms for parent heirarchy system to work
-        .insert(Transform::default())
-        .insert(GlobalTransform::default())
+        .spawn((NineSprite, (Name::new("NineSpriteBox")), 
+        Transform::default(), GlobalTransform::default()))
         .push_children(&sprites)
         .id()
 }
