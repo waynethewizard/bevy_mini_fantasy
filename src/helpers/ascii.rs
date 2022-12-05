@@ -51,7 +51,7 @@ pub fn spawn_ascii_sprite(
     sprite.custom_size = Some(Vec2::splat(TILE_SIZE));
 
     commands
-        .spawn_bundle(SpriteSheetBundle {
+        .spawn(SpriteSheetBundle {
             sprite: sprite,
             texture_atlas: ascii.0.clone(),
             transform: Transform {

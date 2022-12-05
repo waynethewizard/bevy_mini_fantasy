@@ -8,7 +8,7 @@ mod helpers;
 use helpers::ascii::{AsciiPlugin, AsciiSheet};
 use helpers::debug::DebugPlugin;
 //use helpers::graphics::GraphicsPlugin;
-use helpers::nine_sprite::NineSpritePlugin;
+//use helpers::nine_sprite::NineSpritePlugin;
 use helpers::tilemap::TileMapPlugin;
 
 pub const RESOLUTION: f32 = 16.0 / 9.0;
@@ -27,13 +27,12 @@ fn startup(
 }
 
 fn main() {
-    let height = 900.0;
     App::new()
         .insert_resource(ClearColor(CLEAR))
         .insert_resource(Msaa {samples: 1})
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             window: WindowDescriptor {
-                title: "I am a window!".to_string(),
+                title: "Bevy MiniFantasy".to_string(),
                 width: 1500.,
                 height: 800.,
                 present_mode: PresentMode::AutoVsync,
@@ -45,9 +44,7 @@ fn main() {
         .add_state(GameState::Overworld)
         .add_plugin(DebugPlugin)
         .add_plugin(TileMapPlugin)
-        .add_plugin(NineSpritePlugin)
         .add_plugin(AsciiPlugin)
-        //.add_plugin(GraphicsPlugin)
         .add_system(frame_limiter)
         .run();
 }
@@ -66,5 +63,5 @@ fn spawn_camera(mut commands: Commands) {
     camera.projection.bottom = -1.0;
     camera.projection.right = 1.0 * RESOLUTION;
     camera.projection.left = -1.0 * RESOLUTION;
-    commands.spawn_bundle(camera);
+    commands.spawn(camera);
 }
