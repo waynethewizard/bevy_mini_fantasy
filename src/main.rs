@@ -5,10 +5,10 @@ use bevy::{prelude::*, render::camera::ScalingMode, window::PresentMode};
 mod helpers;
 
 
-use helpers::ascii::{AsciiPlugin, AsciiSheet};
+use helpers::ascii::{AsciiPlugin};
 use helpers::debug::DebugPlugin;
-//use helpers::graphics::GraphicsPlugin;
-//use helpers::nine_sprite::NineSpritePlugin;
+use helpers::graphics::GraphicsPlugin;
+use helpers::player::PlayerPlugin;
 use helpers::tilemap::TileMapPlugin;
 
 pub const RESOLUTION: f32 = 16.0 / 9.0;
@@ -18,12 +18,6 @@ pub const CLEAR: Color = Color::rgb(0.1, 0.1, 0.1);
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 enum GameState {
     Overworld
-}
-
-fn startup(
-    mut commands: Commands
-) {
-    commands.spawn(Camera2dBundle::default());
 }
 
 fn main() {
@@ -43,6 +37,8 @@ fn main() {
         .add_startup_system(spawn_camera)
         .add_state(GameState::Overworld)
         .add_plugin(DebugPlugin)
+        .add_plugin(GraphicsPlugin)
+        .add_plugin(PlayerPlugin)
         .add_plugin(TileMapPlugin)
         .add_plugin(AsciiPlugin)
         .add_system(frame_limiter)
