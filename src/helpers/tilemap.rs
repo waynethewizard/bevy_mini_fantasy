@@ -65,17 +65,11 @@ fn create_simple_map(mut commands: Commands, ascii: Res<AsciiSheet>) {
     for (y, line) in BufReader::new(file).lines().enumerate() {
         if let Ok(line) = line {
             for (x, char) in line.chars().enumerate() {
-                let color = match char {
-                    '#' => Color::rgb(100.7, 0.7, 1.0),
-                    '@' => Color::rgb(110.5, 0.5, 1.0),
-                    '~' => Color::rgb(110.2, 0.9, 1.0),
-                    _ => Color::rgb(10.9, 0.9, 0.9),
-                };
+
                 let tile = spawn_ascii_sprite(
                     &mut commands,
                     &ascii,
                     char as usize,
-                    color,
                     Vec3::new(x as f32 * TILE_SIZE, -(y as f32) * TILE_SIZE, 100.0),
                     Vec3::splat(1.0),
                 );
